@@ -1,0 +1,81 @@
+
+transformix is started at Tue Jun 05 23:09:38 2018.
+
+which transformix:   C:\Users\user\Desktop\elastix_windows64_v4.8\transformix.exe
+transformix runs at: user-PC
+  Windows 7 (x64), Service Pack 1 (Build 7601)
+  with 8174 MB memory, and 0 cores @ 3092 MHz.
+Running transformix with parameter file "C:\Users\user\Desktop\Result\TransformParameters.txt".
+
+Reading the elastix parameters from file ...
+
+Installing all components.
+InstallingComponents was successful.
+
+ELASTIX version: 4.800
+Command line options from ElastixBase:
+-in       C:\Users\user\Desktop\Result\hct_in_n.hdr
+-out      C:\Users\user\Desktop\Result\
+-threads  unspecified, so all available threads are used
+-tp       C:\Users\user\Desktop\Result\TransformParameters.txt
+-def      unspecified, so no input points transformed
+-jac      unspecified, so no det(dT/dx) computed
+-jacmat   unspecified, so no dT/dx computed
+
+=============== start of ParameterFile: C:\Users\user\Desktop\Result\TransformParameters.txt ===============
+(Transform "DeformationFieldTransform")
+(DeformationFieldFileName "C:\Users\user\Desktop\Result\deformationField.hdr")
+(DeformationFieldInterpolationOrder 1)
+(NumberOfParameters 0)
+
+// Image specific
+(FixedImageDimension 3)
+(MovingImageDimension 3)
+(FixedInternalImagePixelType "float")
+(MovingInternalImagePixelType "float")
+(Size 128 128 47)
+(Index 0 0 0)
+(Spacing 1.0000000000 1.0000000000 1.0000000000)
+(Origin 0.0000000000 0.0000000000 0.0000000000)
+(Direction 1.0000000000 0.0000000000 0.0000000000 0.0000000000 1.0000000000 0.0000000000 0.0000000000 0.0000000000 1.0000000000)
+(UseDirectionCosines "true")
+
+// ResampleInterpolator specific
+(ResampleInterpolator "FinalBSplineInterpolator")
+(FinalBSplineInterpolationOrder 1)
+
+// Resampler specific
+(Resampler "DefaultResampler")
+(DefaultPixelValue 0.000000)
+(ResultImageFormat "hdr")
+(ResultImagePixelType "float")
+(CompressResultImage "false")
+
+
+
+=============== end of ParameterFile: C:\Users\user\Desktop\Result\TransformParameters.txt ===============
+
+
+Reading input image ...
+  Reading input image took 0.006633 s
+Calling all ReadFromFile()'s ...
+WARNING: The parameter "InitialTransformParametersFileName", requested at entry number 0, does not exist at all.
+  The default value "NoInitialTransform" is used instead.
+WARNING: The parameter "HowToCombineTransforms", requested at entry number 0, does not exist at all.
+  The default value "Compose" is used instead.
+  Calling all ReadFromFile()'s took 0.037409 s
+Transforming points ...
+  The command-line option "-def" is not used, so no points are transformed
+  Transforming points done, it took 0.01s
+Compute determinant of spatial Jacobian ...
+  The command-line option "-jac" is not used, so no det(dT/dx) computed.
+  Computing determinant of spatial Jacobian done, it took 0.01s
+Compute spatial Jacobian (full matrix) ...
+  The command-line option "-jacmat" is not used, so no dT/dx computed.
+  Computing spatial Jacobian done, it took 0.01s
+Resampling image and writing to disk ...
+  Resampling took 0.19s
+
+transformix has finished at Tue Jun 05 23:09:38 2018.
+Total time elapsed: 0.5s.
+

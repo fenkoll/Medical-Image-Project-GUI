@@ -1,0 +1,80 @@
+//ImageTypes
+(FixedInternalImagePixelType "float")
+(FixedImageDimension 3)
+(MovingInternalImagePixelType "float")
+(MovingImageDimension 3)
+
+//Components
+//FixedImagePyramids
+(FixedImagePyramid "FixedRecursiveImagePyramid")
+//Interpolators
+(Interpolators "BSplineInterpolator")
+//Metrics
+(Metric "AdvancedMattesMutualInformation" )
+//MovingImagePyramids
+(MovingImagePyramid "MovingRecursiveImagePyramid")
+//Optimizers
+(Optimizer "AdaptiveStochasticGradientDescent")
+//Registrations
+(Registration "MultiResolutionRegistration")
+//Resamplers
+(Resampler "DefaultResampler")
+//ResampleInterpolators
+(ResampleInterpolator "FinalBSplineInterpolator")
+//Transforms
+(Transform "AffineTransform")
+
+
+// ********** Several
+
+(WriteTransformParametersEachIteration "false")
+(WriteTransformParametersEachResolution "false")
+(WriteResultImage "true")
+(WriteResultImageAfterEachResolution "true")
+(ShowExactMetricValue "false")
+(ErodeFixedMask "false")
+(ErodeMovingMask "false")
+(UseDifferentiableOverlap "false")
+
+// ********** ImageSampler
+(ImageSampler "Random")
+(NumberOfSpatialSamples 20000)
+(UseRandomSampleRegion "true")
+(NewSamplesEveryIteration "true")
+
+// ********** Metric
+
+(NumberOfHistogramBins 16 32 32 )
+(FixedLimitRangeRatio 0.0)
+(MovingLimitRangeRatio 0.0)
+(FixedKernelBSplineOrder 3)
+(MovingKernelBSplineOrder 3)
+
+// ******************** Multiresolution **********************
+
+(NumberOfResolutions 3)
+(ImagePyramidSchedule 4 4 4  2 2 2 1 1 1) // ACCOUNTING FOR ANISOTROPIC RESOLUTION
+
+// ***************** Transformation **************************
+//(ImagePyramidSmoothingSchedule 16 8 4 2 1)
+(GridSpacingSchedule 1 1 1)
+(FinalGridSpacingInPhysicalUnits 1 1 1)
+(HowToCombineTransforms "Compose")
+
+(MaximumStepLength 4 4 1)
+//********** Optimizers
+
+(MaximumNumberOfIterations 1000) // COULD PROBABLY BE LOWERED, ESPECIALLY FOR THE FIRST LEVELS OF THE IMAGE PYRAMID
+
+
+//Interpolator and Resampler
+
+(BSplineInterpolationOrder 3)
+(FinalBSplineInterpolationOrder 1)
+
+
+//Default pixel value for pixels that come from outside the picture:
+(DefaultPixelValue 0)
+
+(ResultImagePixelType "float")
+(ResultImageFormat "hdr")
